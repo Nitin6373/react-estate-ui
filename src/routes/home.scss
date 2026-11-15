@@ -1,0 +1,151 @@
+
+@import "../responsive.scss";
+
+.homepage {
+    display: flex;
+    height: calc(100vh - 100px);
+    width: 100%;
+
+    .textCont {
+        width: 65%;
+        min-width: 0;
+        flex-shrink: 1;
+        font-size: 26px;
+        padding-right: 70px;
+        padding-left: 20px;
+        display: flex;
+        align-items: center;
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(18px, 2.2vw, 30px);
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+
+            h1 {
+                font-size: clamp(27px, 2.6vw, 36px);
+                line-height: 1.15;
+                overflow-wrap: break-word;
+            }
+        }
+
+        .boxes {
+            display: flex;
+            justify-content: space-between;
+            gap: clamp(12px, 2vw, 30px);
+            flex-wrap: wrap;
+            min-width: 0;
+
+            .box {
+                flex: 1 1 90px;
+                min-width: 0;
+            }
+
+            h3 {
+                font-weight: 900;
+            }
+
+            h5 {
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 1.3;
+            }
+        }
+
+        @include lg {
+            padding-right: 45px;
+        }
+
+        @include md {
+            flex: 3 1 0;
+            width: auto;
+            padding: 0;
+
+            .wrapper {
+                padding-right: 0;
+                gap: 22px;
+
+                h1 {
+                    font-size: clamp(26px, 3vw, 30px);
+                }
+
+                .boxes {
+                    gap: 16px;
+                }
+            }
+        }
+
+        @include sm {
+            flex: 1 1 100%;
+            width: 100%;
+            padding: 0;
+
+            .wrapper {
+                width: 100%;
+                padding: 0;
+                gap: 22px;
+
+                h1 {
+                    font-size: clamp(26px, 6vw, 32px);
+                }
+
+                .boxes {
+                    justify-content: space-between;
+                    gap: 12px;
+
+                    .box {
+                        flex: 1 1 100px;
+                    }
+
+                    h3 {
+                        font-size: 24px;
+                    }
+
+                    h5 {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+
+    .imgCont {
+        width: 35%;
+        background-color: #fcf5f3;
+        position: relative;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        img {
+            width: 115%;
+            position: absolute;
+            right: 0;
+        }
+
+        @include lg {
+
+        }
+
+        @include md {
+            flex: 2;
+        }
+
+        @include sm {
+            display: none;
+        }
+    }
+
+
+    @include sm {
+        height: auto;
+        min-height: calc(100vh - 100px);
+    }
+}

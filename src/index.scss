@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+body{
+    font-family: "Lato",sans-serif;
+    overflow-x: hidden;
+}
+
+// img{
+//     max-width: 100%;
+// }
+/* Hide scrollbar globally */
+
+* {
+    scrollbar-width: none;       // Firefox
+    -ms-overflow-style: none;    // IE
+}
+
+*::-webkit-scrollbar {
+    display: none;               // Chrome, Edge, Safari
+}

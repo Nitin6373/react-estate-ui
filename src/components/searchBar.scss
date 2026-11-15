@@ -1,0 +1,108 @@
+@import "../responsive.scss";
+
+.searchBar {
+    width: 100%;
+    min-width: 0;
+
+    .types {
+        border: 1px solid;
+        border-radius: 10px;
+        display: inline-block;
+        overflow: hidden;
+
+        button {
+            padding: 18px 35px;
+            outline: none;
+            cursor: pointer;
+            border: none;
+
+            &.active {
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+
+    form {
+        height: 70px;
+        width: 100%;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+
+        >div {
+            border: 1px solid;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            width: 100%;
+            min-width: 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        input {
+            font-size: 15px;
+            padding: 17px;
+            height: 100%;
+            flex: 1 1 0;
+            width: 0;
+            min-width: 0;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        button {
+            height: 100%;
+            flex: 0 0 60px;
+            padding: 10px;
+            border: none;
+            background-color: #fece51;
+            cursor: pointer;
+
+            img {
+                height: 100%;
+                padding: 10px;
+            }
+        }
+
+        @include md {
+            input {
+                padding: 0 5px;
+                font-size: 14px;
+            }
+        }
+
+        @include sm {
+            height: auto;
+
+            >div {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 54px;
+                height: auto;
+            }
+
+            input {
+                width: 100%;
+                min-width: 0;
+                flex: initial;
+                height: 52px;
+                font-size: 13px;
+            }
+
+            input:first-child {
+                grid-column: 1 / -1;
+                border-bottom: 1px solid #ddd;
+            }
+
+            button {
+                grid-column: 3;
+                grid-row: 2;
+                flex: none;
+                height: 52px;
+            }
+
+        }
+    }
+}
