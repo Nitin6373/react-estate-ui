@@ -1,9 +1,9 @@
 import React from 'react'
 import "./listPage.scss"
-import { listData } from '../lib/dummyData'
-import Filter from "../components/Filter.jsx"
-import Card from '../components/Card.jsx'
-import Map from '../components/Map.jsx'
+import { listData } from '../../lib/dummyData'
+import Filter from "../../components/filter/Filter.jsx"
+import Card from '../../components/card/Card.jsx'
+import Map from '../../components/map/Map.jsx'
 
 function ListPage() {
 

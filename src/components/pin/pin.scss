@@ -1,0 +1,24 @@
+.popupCont {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+
+    img {
+        width: 64px;
+        height: 54px;
+        flex: 0 0 64px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .textCont {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 5px;
+        min-width: 0;
+        a { font-size: 13px; font-weight: 700; }
+        span, b { font-size: 12px; }
+    }
+}

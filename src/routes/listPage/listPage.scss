@@ -1,0 +1,103 @@
+@import "../../styles/responsive.scss";
+
+.listPage {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 100px);
+    min-height: 0;
+    overflow: hidden;
+
+    .listCont {
+        flex: 0 1 65%;
+        width: 65%;
+        min-width: 0;
+        height: 100%;
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
+            min-height: 0;
+            padding-right: 30px;
+            overflow: hidden;
+
+            > .cardCont {
+                display: flex;
+                flex: 1 1 auto;
+                flex-direction: column;
+                gap: 20px;
+                min-height: 0;
+                overflow-y: auto;
+                padding: 0 4px 20px 0;
+                overscroll-behavior: contain;
+            }
+        }
+    }
+
+    > .mapCont {
+        flex: 1 1 35%;
+        width: 35%;
+        min-width: 0;
+        height: 100%;
+        background-color: #fcf5f3;
+        overflow: hidden;
+    }
+
+    @include lg {
+        .listCont {
+            flex-basis: 62%;
+            width: 62%;
+            .wrapper { padding-right: 22px; }
+        }
+        > .mapCont { flex-basis: 38%; width: 38%; }
+    }
+
+    @include md {
+        .listCont {
+            flex-basis: 60%;
+            width: 60%;
+            .wrapper { padding-right: 16px; gap: 16px; }
+        }
+        > .mapCont { flex-basis: 40%; width: 40%; }
+    }
+
+    @include sm {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 80px);
+        overflow: visible;
+        gap: 20px;
+
+        .listCont {
+            flex: none;
+            width: 100%;
+            height: auto;
+
+            .wrapper {
+                height: auto;
+                min-height: 0;
+                padding: 0;
+                overflow: visible;
+                gap: 18px;
+
+                > .cardCont {
+                    flex: none;
+                    height: auto;
+                    min-height: 0;
+                    overflow: visible;
+                    padding: 0;
+                }
+            }
+        }
+
+        > .mapCont {
+            flex: none;
+            width: 100%;
+            height: clamp(240px, 65vw, 340px);
+            min-height: 240px;
+            border-radius: 10px;
+        }
+    }
+}

@@ -1,0 +1,160 @@
+@import "../../styles/responsive.scss";
+
+.sliderCont {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(110px, 1fr);
+    gap: 12px;
+    width: 100%;
+    height: clamp(230px, 28vw, 360px);
+    min-height: 0;
+
+    button { font: inherit; }
+
+    .bigImage, .smallImage button {
+        display: block;
+        min-width: 0;
+        min-height: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        border-radius: 10px;
+        background: #eee;
+        cursor: pointer;
+    }
+
+    .bigImage img, .smallImage img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .25s ease;
+    }
+
+    .bigImage:hover img, .smallImage button:hover img { transform: scale(1.025); }
+
+    .smallImage {
+        display: grid;
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        min-height: 0;
+
+        button { position: relative; }
+        .moreImages {
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            background: #333;
+        }
+    }
+
+    .fullSlider {
+        position: fixed;
+        inset: 0;
+        z-index: 20000;
+        display: grid;
+        grid-template-columns: minmax(52px, 1fr) minmax(0, 12fr) minmax(52px, 1fr);
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        padding: 64px 20px 24px;
+        background: rgba(0, 0, 0, .97);
+
+        .close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            z-index: 2;
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            color: white;
+            font-size: 38px;
+            line-height: 1;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .arrow {
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            img { width: clamp(24px, 4vw, 48px); height: clamp(24px, 4vw, 48px); object-fit: contain; }
+            img.right { transform: rotate(180deg); }
+        }
+
+        .sliderImage {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            min-height: 0;
+
+            img {
+                display: block;
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+                object-fit: contain;
+            }
+
+            .imageCounter {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: white;
+                font-size: 13px;
+                padding: 6px 10px;
+                border-radius: 20px;
+                background: rgba(0, 0, 0, .55);
+            }
+        }
+    }
+
+    @include md {
+        grid-template-columns: minmax(0, 3fr) minmax(85px, 1fr);
+        height: clamp(220px, 30vw, 300px);
+        gap: 9px;
+    }
+
+    @include sm {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(190px, 58vw) 76px;
+        height: auto;
+        gap: 8px;
+
+        .smallImage {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-rows: 1fr;
+            gap: 8px;
+        }
+
+        .fullSlider {
+            grid-template-columns: 42px minmax(0, 1fr) 42px;
+            padding: 58px 6px 18px;
+            .close { top: 5px; right: 8px; width: 42px; height: 42px; font-size: 34px; }
+            .arrow { padding: 2px; }
+        }
+    }
+}
+
+// Prevent the independent page columns from scrolling behind the lightbox.
+body.slider-open .singlePage .details > .wrapper,
+body.slider-open .singlePage .features > .wrapper {
+    overflow: hidden;
+}

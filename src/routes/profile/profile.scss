@@ -1,0 +1,143 @@
+@import "../../styles/responsive.scss";
+
+.profileCont {
+    display: flex;
+    height: calc(100vh - 100px);
+    min-height: 0;
+    min-width: 0;
+
+    .details {
+        padding-right: 30px;
+        width: 65%;
+        min-width: 0;
+        min-height: 0;
+        overflow-y: auto;
+
+        .wrapper {
+            min-width: 0;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 16px;
+                flex-wrap: wrap;
+
+                h1 {
+                    font-weight: 400;
+                }
+
+                button {
+                    padding: 12px 25px;
+                    background-color: #fece51;
+                    cursor: pointer;
+                    border: none;
+                }
+            }
+
+            .saveListCont {
+                padding-bottom: 30px;
+            }
+
+            .userInfo {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                span {
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    .chat {
+        padding: 0 15px;
+        background-color: #fcf5f3;
+        width: 35%;
+        min-width: 0;
+        min-height: 0;
+
+        .wrapper {
+            height: 100%;
+            min-height: 0;
+            min-width: 0;
+        }
+    }
+
+    // Stack profile details and chat on tablet/mobile.
+    @include md {
+        height: auto;
+        min-height: calc(100vh - 100px);
+        flex-direction: column;
+        gap: 24px;
+
+        .details,
+        .chat {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .details {
+            padding-right: 0;
+            overflow: visible;
+
+            .wrapper {
+                height: auto;
+            }
+        }
+
+        .chat {
+            height: 620px;
+            min-height: 520px;
+            padding: 12px;
+
+            .wrapper {
+                height: 100%;
+            }
+        }
+    }
+
+    @include sm {
+        gap: 20px;
+
+        .details {
+            .wrapper {
+                gap: 22px;
+
+                .title {
+                    align-items: flex-start;
+
+                    h1 {
+                        font-size: 22px;
+                    }
+
+                    button {
+                        padding: 10px 14px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+
+        .chat {
+            height: 560px;
+            min-height: 480px;
+            padding: 8px;
+        }
+    }
+}

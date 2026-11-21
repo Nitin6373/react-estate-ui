@@ -1,0 +1,215 @@
+@import "../../styles/responsive.scss";
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 0 30px;
+    position: relative;
+
+    a {
+        transition: transform .2s ease;
+    }
+
+    a:hover {
+        transform: scale(1.04);
+    }
+
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 42px;
+        width: 65%;
+        min-width: 0;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 25px;
+            font-weight: 900;
+            white-space: nowrap;
+
+            img {
+                width: 30px;
+                height: 30px;
+                object-fit: contain;
+            }
+        }
+
+        @include lg {
+            gap: 30px;
+        }
+
+        @include md {
+            gap: 20px;
+
+            .logo {
+                font-size: 21px;
+
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        @include sm {
+            width: auto;
+
+            .link {
+                display: none;
+            }
+
+            .logo span {
+                display: inline;
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+        width: 35%;
+        height: 100%;
+        background: #fcf5f3;
+
+        a {
+            display: inline-block;
+            margin: 8px;
+            padding: 10px 16px;
+            white-space: nowrap;
+        }
+
+        .register {
+            background: #fece51;
+        }
+
+        @include md {
+            gap: 4px;
+
+            a {
+                margin: 4px;
+                padding: 9px 12px;
+            }
+        }
+
+        @include sm {
+            width: auto;
+            flex: 0 0 auto;
+            background: transparent;
+
+            a {
+                display: none;
+            }
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            span {
+                font-weight: 600;
+
+                @include sm{
+                    display: none;
+                }
+            }
+
+            .profile {
+                font-weight: 500;
+                background-color: #fece51;
+                cursor: pointer;
+                padding: 15px 20px;
+                border-radius: 10px;
+                position: relative;
+
+                .notification {
+                    position: absolute;
+                    top: -6px;
+                    right: -6px;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-color: red;
+                    display: flex;
+                    font-size: 14px;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+
+                }
+            }
+
+            img {
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .menuIcon {
+        display: none;
+        padding: 8px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+
+        img {
+            display: block;
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+        }
+
+        @include sm {
+            display: block;
+        }
+    }
+
+    .menu {
+        display: none;
+
+        @include sm {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 26px;
+            width: min(75%, 320px);
+            height: 100vh;
+            height: 100dvh;
+            color: white;
+            background: #171717;
+            font-size: 20px;
+            transform: translateX(100%);
+            visibility: hidden;
+            transition: transform .3s ease, visibility .3s ease;
+
+            &.active {
+                transform: translateX(0);
+                visibility: visible;
+            }
+
+            a:hover {
+                transform: none;
+                color: #fece51;
+            }
+        }
+    }
+
+    @include sm {
+        height: 80px;
+        padding: 0 16px;
+    }
+}
